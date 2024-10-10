@@ -31,7 +31,7 @@ const testCases = [
   [[[[1,2,3],[9,10]],[[4,5],[6,7,8]]], [[1,2,3],[4,5],[6,7,8],[9,10]]]
 ];
 
-const test = testCases.every(([el, result]) => nearFlatten(el).join() == result)
+const test = testCases.every(([el, result]) => nearFlatten(el).join() === result.join());
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

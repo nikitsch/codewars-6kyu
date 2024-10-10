@@ -25,10 +25,27 @@ function upArray(arr){
   return String(newNumber).padStart(arr.length, 0).split('').map(Number);
 }
 
-console.log(upArray([4,3,2,5]), [4,3,2,6]);
-console.log(upArray([2,3,9,9]), [2,4,0,0]);
-console.log(upArray(    [9,9]),   [1,0,0]);
-console.log(upArray(    [0,7]),     [0,8]);
-console.log(upArray([1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0]), [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,1]);
-console.log(upArray([1,-9]), null);
-console.log(upArray([1,10]), null);
+const testCases = [
+  [[4,3,2,5], [4,3,2,6]],
+  [[2,3,9,9], [2,4,0,0]],
+  [[9,9], [1,0,0]],
+  [[0,7], [0,8]],
+  [[1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0], [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,1]],
+  [[1,-9], null],
+  [[1,10], null]
+];
+
+const test = testCases.every(([el, result]) => {
+  const value = upArray(el);
+
+  if (Array.isArray(result)) {
+    return value.join() === result.join();
+  }
+
+  return value === result;
+})
+if (test) {
+  console.log('%cTest passed', 'color: green; font-weight: bold;');
+} else {
+  console.log('%cTest failed', 'color: red; font-weight: bold;');
+}
