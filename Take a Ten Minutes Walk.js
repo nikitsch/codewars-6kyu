@@ -53,5 +53,5 @@ const test = testCases.every(([arr, result]) => isValidWalk(arr) === result)
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {
-  console.log('%cTest failed', 'color: red; font-weight: bold;');
+  console.error('Test failed');
 }
