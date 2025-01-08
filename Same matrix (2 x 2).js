@@ -33,7 +33,7 @@
 //                           [3, 1, 4, 2],
 //                           [4, 3, 2, 1],
 //                           [2, 4, 1, 3]]);
-                          
+
 //should return '1'
 // Notes
 
@@ -41,38 +41,43 @@
 
 const rotateMatrix = ([a, b, c, d], times) => {
   switch (times) {
-      case 1:
-        return [c, a, d, b];
-      case 2:
-        return [d, c, b, a];
-      case 3:
-        return [b, d, a, c];
-      default:
-        return [a, b, c, d];
+    case 1:
+      return [c, a, d, b];
+    case 2:
+      return [d, c, b, a];
+    case 3:
+      return [b, d, a, c];
+    default:
+      return [a, b, c, d];
   }
-}
+};
 
-const isArraysIdentical = (arr1, arr2) => [0, 1, 2, 3].some((time) => rotateMatrix(arr2, time).every((el, i) => el === arr1[i]));
-
+const isArraysIdentical = (arr1, arr2) =>
+  [0, 1, 2, 3].some((time) =>
+    rotateMatrix(arr2, time).every((el, i) => el === arr1[i])
+  );
 
 function countDifferentMatrices(matrices) {
   const [firstMatrice, ...restMatrices] = matrices;
-  
-  const res = restMatrices.reduce((acc, cur) => {
-    const isMatrixRepeated = acc.repetitions.some((repetition) => isArraysIdentical(repetition, cur));
-    
-    if (!isMatrixRepeated) {
-      acc.repetitions.push(cur);
-      acc.count++;
-    }
-    
-    return acc;
-  }, { repetitions: [firstMatrice], count: 1 });
-  
+
+  const res = restMatrices.reduce(
+    (acc, cur) => {
+      const isMatrixRepeated = acc.repetitions.some((repetition) =>
+        isArraysIdentical(repetition, cur)
+      );
+
+      if (!isMatrixRepeated) {
+        acc.repetitions.push(cur);
+        acc.count++;
+      }
+
+      return acc;
+    },
+    { repetitions: [firstMatrice], count: 1 }
+  );
+
   return res.count;
 }
-
-
 
 const testCases = [
   [
@@ -80,36 +85,42 @@ const testCases = [
       [1, 2, 3, 4],
       [3, 1, 4, 2],
       [4, 3, 2, 1],
-      [2, 4, 1, 3]
+      [2, 4, 1, 3],
     ],
-   1],
+    1,
+  ],
   [
     [
       [3, 1, 2, 3],
       [3, 1, 2, 3],
       [1, 3, 3, 2],
-      [3, 2, 1, 3]
+      [3, 2, 1, 3],
     ],
-   1],
-   [
+    1,
+  ],
+  [
     [
       [5, 1, 2, 6],
       [5, 4, 3, 5],
-      [2, 5, 6, 1]
+      [2, 5, 6, 1],
     ],
-   2],
-   [
+    2,
+  ],
+  [
     [
       [1, 2, 2, 1],
       [1, 1, 2, 2],
       [2, 1, 1, 2],
       [2, 1, 2, 1],
-      [1, 2, 1, 2]
+      [1, 2, 1, 2],
     ],
-   2]
+    2,
+  ],
 ];
 
-const test = testCases.every(([arr, result]) => countDifferentMatrices(arr) === result)
+const test = testCases.every(
+  ([arr, result]) => countDifferentMatrices(arr) === result
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

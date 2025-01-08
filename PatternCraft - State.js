@@ -66,14 +66,14 @@ class Tank {
     testCases.forEach(([state, res]) => {
       if (state !== res) {
         throw new Error(
-          `Test \`Tank State\` failed. Expected ${state} to equal ${res}`,
+          `Test \`Tank State\` failed. Expected ${state} to equal ${res}`
         );
       }
     });
 
     console.log(
       '%cTest `Tank State` passed',
-      'color: green; font-weight: bold;',
+      'color: green; font-weight: bold;'
     );
   } catch (e) {
     console.error(e.message);
@@ -94,14 +94,14 @@ class Tank {
     testCases.forEach(([state, res]) => {
       if (state !== res) {
         throw new Error(
-          `Test \`Siege State\` failed. Expected ${state} to equal ${res}`,
+          `Test \`Siege State\` failed. Expected ${state} to equal ${res}`
         );
       }
     });
 
     console.log(
       '%cTest `Siege State` passed',
-      'color: green; font-weight: bold;',
+      'color: green; font-weight: bold;'
     );
   } catch (e) {
     console.error(e.message);
@@ -115,20 +115,20 @@ class Tank {
 
     if (tank.canMove !== true) {
       throw new Error(
-        `Test \`Mix State\` failed. Expected ${tank.canMove} to equal true`,
+        `Test \`Mix State\` failed. Expected ${tank.canMove} to equal true`
       );
     }
 
     tank.state = new SiegeState();
     if (tank.damage !== 20) {
       throw new Error(
-        `Test \`Mix State\` failed. Expected ${tank.damage} to equal 20`,
+        `Test \`Mix State\` failed. Expected ${tank.damage} to equal 20`
       );
     }
 
     console.log(
       '%cTest `Mix State` passed',
-      'color: green; font-weight: bold;',
+      'color: green; font-weight: bold;'
     );
   } catch (e) {
     console.error(e.message);

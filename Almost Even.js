@@ -10,27 +10,41 @@
 // Inputs
 // The input to your function will always be valid for this kata.
 
-var splitInteger = function(num, parts) {
+var splitInteger = function (num, parts) {
   const separat = Math.floor(num / parts);
   if (separat === 0) return 0;
 
-  const res = new Array(parts).fill(separat)
+  const res = new Array(parts).fill(separat);
   const diff = num - res.reduce((acc, cur) => acc + cur);
   if (diff !== 0) {
-    return res.map((el, i) => (i + 1) <= diff ? (el + 1) : el)
+    return res.map((el, i) => (i + 1 <= diff ? el + 1 : el));
   }
 
   return res;
-}
+};
 
 const testCases = [
   [[10, 1], [10]],
-  [[2, 2], [1, 1]],
-  [[20, 5], [4, 4, 4, 4, 4]],
-  [[20, 6], [3, 3, 3, 3, 4, 4]]
+  [
+    [2, 2],
+    [1, 1],
+  ],
+  [
+    [20, 5],
+    [4, 4, 4, 4, 4],
+  ],
+  [
+    [20, 6],
+    [3, 3, 3, 3, 4, 4],
+  ],
 ];
 
-const test = testCases.every(([arr, result]) => splitInteger(...arr).sort().join() === result.join())
+const test = testCases.every(
+  ([arr, result]) =>
+    splitInteger(...arr)
+      .sort()
+      .join() === result.join()
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

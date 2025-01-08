@@ -19,7 +19,7 @@ function decipherThis(str) {
   return transcodASCII.replace(/[^\s]+/g, (el) =>
     el.length < 3
       ? el
-      : el.slice(0, 1) + el.slice(1).replace(/(^\w)(\w*)(\w$)/, '$3$2$1'),
+      : el.slice(0, 1) + el.slice(1).replace(/(^\w)(\w*)(\w$)/, '$3$2$1')
   );
 }
 
@@ -53,7 +53,7 @@ const testCases = [
 ];
 
 const test = testCases.every(
-  ([string, result]) => decipherThis(string) === result,
+  ([string, result]) => decipherThis(string) === result
 );
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');

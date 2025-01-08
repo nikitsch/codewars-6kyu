@@ -96,7 +96,7 @@ const testCases = [
   [numbers.sum(), 15],
   [numbers.average(), 3],
   [numbers.even(), [2, 4]],
-  [numbers.odd(), [1, 3, 5]]
+  [numbers.odd(), [1, 3, 5]],
 ];
 
 const test = testCases.every(([fn, result]) => {

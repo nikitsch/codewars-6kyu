@@ -9,21 +9,23 @@
 // "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
 
 function toCamelCase(str) {
-  const [first, ...restWords] = str.split((/\-|\_/));
-  const phrase = restWords.map(word => word[0].toUpperCase() + word.slice(1)).join('');
+  const [first, ...restWords] = str.split(/\-|\_/);
+  const phrase = restWords
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join('');
 
-  return `${first}${phrase}`
+  return `${first}${phrase}`;
 }
 
 const testCases = [
   ['', ''],
-  ["the_stealth_warrior", "theStealthWarrior"],
-  ["The-Stealth-Warrior", "TheStealthWarrior"],
-  ["A-B-C", "ABC"]
+  ['the_stealth_warrior', 'theStealthWarrior'],
+  ['The-Stealth-Warrior', 'TheStealthWarrior'],
+  ['A-B-C', 'ABC'],
 ];
 
 const test = testCases.every(
-  ([string, result]) => toCamelCase(string) === result,
+  ([string, result]) => toCamelCase(string) === result
 );
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');

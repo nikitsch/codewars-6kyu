@@ -13,31 +13,33 @@
 
 function repeatingFractions(numerator, denominator) {
   const res = String(numerator / denominator);
-  const split = res.split(".");
+  const split = res.split('.');
   if (!split[1]) return res;
   const resSec = [];
-  split[1].split("").map((el) => {
+  split[1].split('').map((el) => {
     const last = resSec[resSec.length - 1];
-    if (last === "(" + el + ")") return;
+    if (last === '(' + el + ')') return;
     if (last === el) {
       resSec.pop();
-      resSec.push("(" + el + ")");
+      resSec.push('(' + el + ')');
       return;
     }
     resSec.push(el);
   });
-   return split[0] + "." + resSec.join("");
+  return split[0] + '.' + resSec.join('');
 }
 
 const testCases = [
-  [[1,1], '1'],
-  [[1,2], '0.5'],
-  [[1,3], '0.(3)'],
-  [[2,888], '0.(0)(2)5(2)5(2)5(2)5(2)5(2)'],
-  [[1554,70], '22.2']
+  [[1, 1], '1'],
+  [[1, 2], '0.5'],
+  [[1, 3], '0.(3)'],
+  [[2, 888], '0.(0)(2)5(2)5(2)5(2)5(2)5(2)'],
+  [[1554, 70], '22.2'],
 ];
 
-const test = testCases.every(([arr, result]) => repeatingFractions(...arr) === result)
+const test = testCases.every(
+  ([arr, result]) => repeatingFractions(...arr) === result
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

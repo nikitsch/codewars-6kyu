@@ -6,17 +6,17 @@
 
 // [
 //   "  *  ",
-//   " *** ", 
+//   " *** ",
 //   "*****"
 // ]
 // And a tower with 6 floors looks like this:
 
 // [
-//   "     *     ", 
-//   "    ***    ", 
-//   "   *****   ", 
-//   "  *******  ", 
-//   " ********* ", 
+//   "     *     ",
+//   "    ***    ",
+//   "   *****   ",
+//   "  *******  ",
+//   " ********* ",
 //   "***********"
 // ]
 // Go challenge Build Tower Advanced once you have finished this :)
@@ -33,12 +33,14 @@ function towerBuilder(nFloors) {
 }
 
 const testCases = [
-  [1, ["*"]],
-  [2, [" * ","***"]],
-  [3, ["  *  "," *** ","*****"]]
+  [1, ['*']],
+  [2, [' * ', '***']],
+  [3, ['  *  ', ' *** ', '*****']],
 ];
 
-const test = testCases.every(([count, result]) => towerBuilder(count).join() === result.join());
+const test = testCases.every(
+  ([count, result]) => towerBuilder(count).join() === result.join()
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

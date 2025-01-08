@@ -12,13 +12,13 @@
 function once(fn) {
   let called = false;
 
-  return function(...arguments) { 
-    if (!called) { 
+  return function (...args) {
+    if (!called) {
       called = true;
 
-      return fn.apply(this, arguments);
+      return fn.apply(this, args);
     }
-  }
+  };
 }
 
 const testCases = [
@@ -30,7 +30,7 @@ const testCases = [
       increment(); // -> no effect
       return count;
     })(),
-    1
+    1,
   ],
   [
     (() => {
@@ -38,11 +38,11 @@ const testCases = [
       let output = [];
       const mockConsoleLog = (msg) => output.push(msg);
       const logMock = once(mockConsoleLog);
-      logMock("first call"); // -> "first call"
-      logMock("second call"); // -> no effect
-      return output.join(",");
+      logMock('first call'); // -> "first call"
+      logMock('second call'); // -> no effect
+      return output.join(',');
     })(),
-    "first call"
+    'first call',
   ],
   [
     (() => {
@@ -51,17 +51,17 @@ const testCases = [
       const result2 = returnOnce(10); // -> no effect
       return [result1, result2];
     })(),
-    [10, undefined]
+    [10, undefined],
   ],
   [
     (() => {
-      const noArgsOnce = once(() => "only once");
+      const noArgsOnce = once(() => 'only once');
       const result1 = noArgsOnce(); // -> "only once"
       const result2 = noArgsOnce(); // -> no effect
       return [result1, result2];
     })(),
-    ["only once", undefined]
-  ]
+    ['only once', undefined],
+  ],
 ];
 
 const test = testCases.every(([actual, expected]) => {

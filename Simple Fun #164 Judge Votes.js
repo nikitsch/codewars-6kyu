@@ -10,9 +10,9 @@
 
 // The votes made by the voters are given in an array of integers
 
-// c = candidate  
-// v = voter  
-// num = number which represent that row votes  
+// c = candidate
+// v = voter
+// num = number which represent that row votes
 // :
 //         c30 c29 c28 c27  ... c8  c7  c6  c5  c4  c3  c2  c1     num
 // v1     1   0   1   0   ... 0   0   0   0   0   1   0   0    704643076
@@ -27,9 +27,9 @@
 
 // For: votes = [1,3,3], the result should be 1.
 
-// c = candidate  
-// v = voter  
-// num = number which represent that row votes  
+// c = candidate
+// v = voter
+// num = number which represent that row votes
 // :
 //     c30 c29 c28 c27  ... c8  c7  c6  c5  c4  c3  c2  c1  num
 // v1   0   0   0   0   ... 0   0   0   0   0   0   0   1    1
@@ -39,9 +39,9 @@
 
 // For votes = [7,15,4], the result should be 3.
 
-// c = candidate  
-// v = voter  
-// num = number which represent that row votes  
+// c = candidate
+// v = voter
+// num = number which represent that row votes
 // :
 //     c30 c29 c28 c27  ... c8  c7  c6  c5  c4  c3  c2  c1  num
 // v1   0   0   0   0   ... 0   0   0   0   0   1   1   1    7
@@ -59,7 +59,7 @@
 // Number of winning candidate.
 
 const filterArr = (arr1, arr2) => {
-  return arr1.filter(candidate => arr2.includes(candidate))
+  return arr1.filter((candidate) => arr2.includes(candidate));
 };
 
 function judge(votes) {
@@ -67,17 +67,18 @@ function judge(votes) {
 
   for (const vote of votes) {
     const binary = vote.toString(2).padStart(30, '0');
-    const electoralVotes = binary.split('')
-                    .map((bit, i) => bit === '1' ? Math.abs(i + 1 - 31) : null)
-                    .filter(x => x !== null);
-    
+    const electoralVotes = binary
+      .split('')
+      .map((bit, i) => (bit === '1' ? Math.abs(i + 1 - 31) : null))
+      .filter((x) => x !== null);
+
     if (!candidates.length) {
       candidates = [...electoralVotes];
       continue;
     }
-    
+
     candidates = filterArr(candidates, electoralVotes);
-    
+
     if (!candidates.length) return 0;
   }
 
@@ -94,10 +95,10 @@ const testCases = [
   [[7, 15, 4], 3],
   [[15, 8, 1073741823], 4],
   [[10384825, 10384825, 10384825], 0],
-  [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0]
+  [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0],
 ];
 
-const test = testCases.every(([arr, result]) => judge(arr) === result)
+const test = testCases.every(([arr, result]) => judge(arr) === result);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

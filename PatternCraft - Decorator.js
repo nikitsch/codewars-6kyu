@@ -29,68 +29,79 @@ class Marine {
   constructor(_damage, _armor) {
     this.damage = _damage || 0;
     this.armor = _armor || 0;
-  };
-};
+  }
+}
 
 class MarineWeaponUpgrade {
   constructor(marine) {
     this.damage = marine.damage + 1;
     this.armor = marine.armor;
-  };
-};
+  }
+}
 
 class MarineArmorUpgrade {
   constructor(marine) {
     this.damage = marine.damage;
     this.armor = marine.armor + 1;
-  };
-};
+  }
+}
 
 // Test Single upgrade:
-  (function() {
-    try {
-      let marine = new Marine(10, 1);
+(function () {
+  try {
+    let marine = new Marine(10, 1);
 
-      const testCases = [
-        [new MarineWeaponUpgrade(marine).damage, 11],
-        [new MarineWeaponUpgrade(marine).damage, 11]
-      ];
+    const testCases = [
+      [new MarineWeaponUpgrade(marine).damage, 11],
+      [new MarineWeaponUpgrade(marine).damage, 11],
+    ];
 
-      testCases.forEach(([fn, res]) => {
-        if (fn !== res) {
-          throw new Error(`Test \`Double upgrade\` failed. Expected ${fn} to equal ${res}`)
-        }
-      })
+    testCases.forEach(([fn, res]) => {
+      if (fn !== res) {
+        throw new Error(
+          `Test \`Double upgrade\` failed. Expected ${fn} to equal ${res}`
+        );
+      }
+    });
 
-      console.log('%cTest `Single upgrade` passed', 'color: green; font-weight: bold;');
-    } catch (e) {
-      console.error(e.message);
-    }
-  })();
+    console.log(
+      '%cTest `Single upgrade` passed',
+      'color: green; font-weight: bold;'
+    );
+  } catch (e) {
+    console.error(e.message);
+  }
+})();
 
-  // Test Double upgrade:
-  (function() {
-    let marine = new Marine(15, 1);
-    marine = new MarineWeaponUpgrade(marine);
-    marine = new MarineWeaponUpgrade(marine);
+// Test Double upgrade:
+(function () {
+  let marine = new Marine(15, 1);
+  marine = new MarineWeaponUpgrade(marine);
+  marine = new MarineWeaponUpgrade(marine);
 
-    if (marine.damage === 17) {
-      console.log('%cTest `Double upgrade` passed', 'color: green; font-weight: bold;');
-    } else {
-      console.error('Test `Double upgrade` failed');
-    }
-  })();
+  if (marine.damage === 17) {
+    console.log(
+      '%cTest `Double upgrade` passed',
+      'color: green; font-weight: bold;'
+    );
+  } else {
+    console.error('Test `Double upgrade` failed');
+  }
+})();
 
-  // Test Triple upgrade:
-  (function() {
-    let marine = new Marine(20, 1);
-    marine = new MarineArmorUpgrade(marine);
-    marine = new MarineArmorUpgrade(marine);
-    marine = new MarineArmorUpgrade(marine);
+// Test Triple upgrade:
+(function () {
+  let marine = new Marine(20, 1);
+  marine = new MarineArmorUpgrade(marine);
+  marine = new MarineArmorUpgrade(marine);
+  marine = new MarineArmorUpgrade(marine);
 
-    if (marine.armor === 4) {
-      console.log('%cTest `Triple upgrade` passed', 'color: green; font-weight: bold;');
-    } else {
-      console.error('Test `Triple upgrade` failed');
-    }
-  })();
+  if (marine.armor === 4) {
+    console.log(
+      '%cTest `Triple upgrade` passed',
+      'color: green; font-weight: bold;'
+    );
+  } else {
+    console.error('Test `Triple upgrade` failed');
+  }
+})();

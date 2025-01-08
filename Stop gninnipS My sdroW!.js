@@ -3,30 +3,32 @@
 
 // Examples:
 
-// "Hey fellow warriors"  --> "Hey wollef sroirraw" 
-// "This is a test        --> "This is a test" 
+// "Hey fellow warriors"  --> "Hey wollef sroirraw"
+// "This is a test        --> "This is a test"
 // "This is another test" --> "This is rehtona test"
 
-function spinWords(string){
-  return string.split(' ')
-    .map(elem => elem.length > 4 
-      ? elem.split('').reverse().join('')
-      : elem)
+function spinWords(string) {
+  return string
+    .split(' ')
+    .map((elem) => (elem.length > 4 ? elem.split('').reverse().join('') : elem))
     .join(' ');
 }
 
 const testCases = [
-  ["Welcome", "emocleW"],
-  ["Hey fellow warriors", "Hey wollef sroirraw"],
-  ["This is a test", "This is a test"],
-  ["This is another test", "This is rehtona test"],
-  ["You are almost to the last test", "You are tsomla to the last test"],
-  ["Just kidding there is still one more", "Just gniddik ereht is llits one more"],
-  ["Seriously this is the last one", "ylsuoireS this is the last one"]
+  ['Welcome', 'emocleW'],
+  ['Hey fellow warriors', 'Hey wollef sroirraw'],
+  ['This is a test', 'This is a test'],
+  ['This is another test', 'This is rehtona test'],
+  ['You are almost to the last test', 'You are tsomla to the last test'],
+  [
+    'Just kidding there is still one more',
+    'Just gniddik ereht is llits one more',
+  ],
+  ['Seriously this is the last one', 'ylsuoireS this is the last one'],
 ];
 
 const test = testCases.every(
-  ([string, result]) => spinWords(string) === result,
+  ([string, result]) => spinWords(string) === result
 );
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');

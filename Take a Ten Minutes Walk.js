@@ -35,7 +35,7 @@ function isValidWalk(walk) {
         break;
 
       default:
-        console.error('Hey dude! We live in four coordinates!')
+        console.error('Hey dude! We live in four coordinates!');
     }
   }
 
@@ -43,13 +43,13 @@ function isValidWalk(walk) {
 }
 
 const testCases = [
-  [['n','s','n','s','n','s','n','s','n','s'], true],
-  [['w','e','w','e','w','e','w','e','w','e','w','e'], false],
+  [['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'], true],
+  [['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'], false],
   [['w'], false],
-  [['n','n','n','s','n','s','n','s','n','s'], false]
+  [['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'], false],
 ];
 
-const test = testCases.every(([arr, result]) => isValidWalk(arr) === result)
+const test = testCases.every(([arr, result]) => isValidWalk(arr) === result);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

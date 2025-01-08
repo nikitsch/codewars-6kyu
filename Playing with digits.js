@@ -35,7 +35,7 @@ const testCases = [
 ];
 
 const test = testCases.every(
-  ([numbers, result]) => digPow(...numbers) === result,
+  ([numbers, result]) => digPow(...numbers) === result
 );
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');

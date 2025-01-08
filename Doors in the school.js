@@ -20,28 +20,32 @@
 // doors(5)
 // Should return: 2
 
-function doors(n){
+function doors(n) {
   if (n === 1) return 1;
-  
+
   const arr = new Array(n).fill(true);
   let count = 1;
-  
+
   for (let i = 2; i <= n; i++) {
     for (let j = i; j <= n; j += i) {
-      arr[j-1] = !arr[j-1];
+      arr[j - 1] = !arr[j - 1];
     }
-    
-    if (arr[i-1]) {
+
+    if (arr[i - 1]) {
       count++;
     }
   }
-  
+
   return count;
 }
 
-const testCases = [[5, 2], [10, 3], [100, 10]];
+const testCases = [
+  [5, 2],
+  [10, 3],
+  [100, 10],
+];
 
-const test = testCases.every(([el, result]) => doors(el) == result)
+const test = testCases.every(([el, result]) => doors(el) == result);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

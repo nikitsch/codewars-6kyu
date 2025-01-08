@@ -11,7 +11,7 @@
 function deepCount(a) {
   return a.reduce(
     (v, d) => v + (Array.isArray(d) ? deepCount(d) : 0),
-    a.length,
+    a.length
   );
 }
 

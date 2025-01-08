@@ -32,7 +32,7 @@
 
 // The number of black cells.
 
-const gcd = (a, b) => b ? gcd(b, a % b) : a;
+const gcd = (a, b) => (b ? gcd(b, a % b) : a);
 
 function countBlackCells(n, m) {
   let s;
@@ -57,19 +57,21 @@ function countBlackCells(n, m) {
 }
 
 const testCases = [
-  [[3,4], 6],
-  [[3,3], 7],
-  [[2,5], 6],
-  [[1,1], 1],
-  [[1,2], 2],
-  [[1,239], 239],
-  [[31,45], 75],
-  [[33,44], 86],
-  [[16,8], 30],
-  [[6666,8888], 17774]
+  [[3, 4], 6],
+  [[3, 3], 7],
+  [[2, 5], 6],
+  [[1, 1], 1],
+  [[1, 2], 2],
+  [[1, 239], 239],
+  [[31, 45], 75],
+  [[33, 44], 86],
+  [[16, 8], 30],
+  [[6666, 8888], 17774],
 ];
 
-const test = testCases.every(([arr, result]) => countBlackCells(...arr) === result)
+const test = testCases.every(
+  ([arr, result]) => countBlackCells(...arr) === result
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

@@ -14,7 +14,7 @@
 
 function bingo(ticket, win) {
   const miniWins = ticket.filter(([str, code]) =>
-    str.split('').some((letter) => letter.charCodeAt(0) === code),
+    str.split('').some((letter) => letter.charCodeAt(0) === code)
   ).length;
 
   if (miniWins >= win) {

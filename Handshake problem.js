@@ -33,7 +33,7 @@ function getParticipants(handshakes) {
     testCases.forEach(([h, res]) => {
       if (getParticipants(h) !== res) {
         throw new Error(
-          `Test failed. Expected ${h} handshake${h > 1 ? 's' : ''} to equal ${res} handshake${res > 1 ? 's' : ''}`,
+          `Test failed. Expected ${h} handshake${h > 1 ? 's' : ''} to equal ${res} handshake${res > 1 ? 's' : ''}`
         );
       }
     });

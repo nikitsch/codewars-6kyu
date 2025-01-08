@@ -19,7 +19,7 @@ const testCases = [
   [3, 7],
   [5, 31],
   [10, 1023],
-  [20, 1048575]
+  [20, 1048575],
 ];
 
 const test = testCases.every(([disks, result]) => hanoi(disks) === result);

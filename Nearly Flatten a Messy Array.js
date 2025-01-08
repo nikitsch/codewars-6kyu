@@ -13,25 +13,57 @@ function nearFlatten(nested) {
   const result = {};
 
   (function traverse(array) {
-    if (array.every(item => !Array.isArray(item))) {
+    if (array.every((item) => !Array.isArray(item))) {
       const key = array[0];
       result[key] = array;
     } else {
-      array.forEach(subArray => traverse(subArray));
+      array.forEach((subArray) => traverse(subArray));
     }
-  }(nested));
+  })(nested);
 
   return Object.values(result);
 }
 
 const testCases = [
   [[[1]], [[1]]],
-  [[[1,2,3,4]], [[1,2,3,4]]],
-  [[[1,2,3],[[4,5],[6,7,8]]], [[1,2,3],[4,5],[6,7,8]]],
-  [[[[1,2,3],[9,10]],[[4,5],[6,7,8]]], [[1,2,3],[4,5],[6,7,8],[9,10]]]
+  [[[1, 2, 3, 4]], [[1, 2, 3, 4]]],
+  [
+    [
+      [1, 2, 3],
+      [
+        [4, 5],
+        [6, 7, 8],
+      ],
+    ],
+    [
+      [1, 2, 3],
+      [4, 5],
+      [6, 7, 8],
+    ],
+  ],
+  [
+    [
+      [
+        [1, 2, 3],
+        [9, 10],
+      ],
+      [
+        [4, 5],
+        [6, 7, 8],
+      ],
+    ],
+    [
+      [1, 2, 3],
+      [4, 5],
+      [6, 7, 8],
+      [9, 10],
+    ],
+  ],
 ];
 
-const test = testCases.every(([el, result]) => nearFlatten(el).join() === result.join());
+const test = testCases.every(
+  ([el, result]) => nearFlatten(el).join() === result.join()
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

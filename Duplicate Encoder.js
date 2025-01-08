@@ -5,7 +5,7 @@
 // "din"      =>  "((("
 // "recede"   =>  "()()()"
 // "Success"  =>  ")())())"
-// "(( @"     =>  "))((" 
+// "(( @"     =>  "))(("
 // Notes
 // Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
 
@@ -13,7 +13,7 @@ function duplicateEncode(word) {
   const arr = [...word.toLowerCase()];
   const duplicates = arr.reduce(
     (acc, cur) => ({ ...acc, [cur]: [cur] in acc }),
-    {},
+    {}
   );
 
   return arr.map((letter) => (duplicates[letter] ? ')' : '(')).join('');

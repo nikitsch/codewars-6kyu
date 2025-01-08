@@ -39,7 +39,9 @@ function sum(x, y) {
   return x + y;
 }
 
-const result = testCases.every(([arr, initial, res]) => arr.reduce(sum, initial) === res);
+const result = testCases.every(
+  ([arr, initial, res]) => arr.reduce(sum, initial) === res
+);
 if (result) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

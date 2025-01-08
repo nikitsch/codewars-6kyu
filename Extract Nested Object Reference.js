@@ -29,7 +29,7 @@ const testCases = [
   ['person.history.bio.', undefined],
   ['person.history.homeStreet', undefined],
   ['person.history.hometown', 'Bratislava'],
-  ['person.animal.pet.needNoseAntEater', undefined]
+  ['person.animal.pet.needNoseAntEater', undefined],
 ];
 
 const obj = {
@@ -37,12 +37,14 @@ const obj = {
     name: 'joe',
     history: {
       hometown: 'Bratislava',
-      bio: { funFact: 'I like fishing.' }
-    }
-  }
+      bio: { funFact: 'I like fishing.' },
+    },
+  },
 };
 
-const test = testCases.every(([path, res]) => JSON.stringify(obj.hash(path)) === JSON.stringify(res));
+const test = testCases.every(
+  ([path, res]) => JSON.stringify(obj.hash(path)) === JSON.stringify(res)
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

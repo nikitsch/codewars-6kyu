@@ -11,14 +11,14 @@
 
 // Hofstadter Wikipedia Reference http://en.wikipedia.org/wiki/Hofstadter_sequence#Hofstadter_Female_and_Male_sequences
 
-function F(n) { 
-  if (n === 0) return 1
-  return n - M(F(n - 1))
+function F(n) {
+  if (n === 0) return 1;
+  return n - M(F(n - 1));
 }
 
-function M(n) { 
-  if (n === 0) return 0
-  return n - F(M(n - 1))
+function M(n) {
+  if (n === 0) return 0;
+  return n - F(M(n - 1));
 }
 
 const testCases = [

@@ -32,14 +32,14 @@ function createFunctions(n) {
     testCases.forEach(([fn, res]) => {
       if (fn !== res) {
         throw new Error(
-          `Test \`Functions must return correct number\` failed. Expected ${fn} to equal ${res}`,
+          `Test \`Functions must return correct number\` failed. Expected ${fn} to equal ${res}`
         );
       }
     });
 
     console.log(
       `%cTest \`Functions must return correct number\` passed`,
-      'color: green; font-weight: bold;',
+      'color: green; font-weight: bold;'
     );
   } catch (e) {
     console.error(e.message);

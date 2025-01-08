@@ -8,18 +8,21 @@
 const timeToSeconds = (time) => {
   const [h, m, s] = time.split(':').map(Number);
   return h * 3600 + m * 60 + s;
-}
+};
 
 function timeMath(time1, op, time2) {
   const secInFirstTense = timeToSeconds(time1);
   const secInSecondTense = timeToSeconds(time2);
-  
-  let calcResult = op === "+" ? secInFirstTense + secInSecondTense : secInFirstTense - secInSecondTense;
+
+  let calcResult =
+    op === '+'
+      ? secInFirstTense + secInSecondTense
+      : secInFirstTense - secInSecondTense;
   calcResult = (calcResult + 86400) % 86400;
 
-  const h = String(Math.floor(calcResult / 3600)).padStart(2, "0");
-  const m = String(Math.floor((calcResult % 3600) / 60)).padStart(2, "0");
-  const s = String(calcResult % 60).padStart(2, "0");
+  const h = String(Math.floor(calcResult / 3600)).padStart(2, '0');
+  const m = String(Math.floor((calcResult % 3600) / 60)).padStart(2, '0');
+  const s = String(calcResult % 60).padStart(2, '0');
 
   return `${h}:${m}:${s}`;
 }
@@ -32,7 +35,7 @@ const testCases = [
   [['00:00:01', '+', '23:59:59'], '00:00:00'],
   [['13:48:52', '+', '13:47:53'], '03:36:45'],
   [['00:00:01', '-', '00:00:02'], '23:59:59'],
-  [['13:48:52', '-', '13:47:53'], '00:00:59']
+  [['13:48:52', '-', '13:47:53'], '00:00:59'],
 ];
 
 const test = testCases.every(([arr, result]) => timeMath(...arr) === result);

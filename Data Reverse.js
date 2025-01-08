@@ -18,7 +18,7 @@
 
 function dataReverse(data) {
   const res = [];
-  
+
   for (let i = data.length - 1; i >= 0; i = i - 8) {
     res.push(...data.slice(i - 7, i + 1));
   }
@@ -28,16 +28,24 @@ function dataReverse(data) {
 
 const testCases = [
   [
-    [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0],
-    [1,0,1,0,1,0,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1]
+    [
+      1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+      0, 1, 0, 1, 0, 1, 0,
+    ],
+    [
+      1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+      1, 1, 1, 1, 1, 1, 1,
+    ],
   ],
   [
-    [0,0,1,1,0,1,1,0,0,0,1,0,1,0,0,1],
-    [0,0,1,0,1,0,0,1,0,0,1,1,0,1,1,0]
-  ]
+    [0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1],
+    [0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0],
+  ],
 ];
 
-const test = testCases.every(([arr, result]) => dataReverse(arr).join() === result.join())
+const test = testCases.every(
+  ([arr, result]) => dataReverse(arr).join() === result.join()
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

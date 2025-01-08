@@ -15,9 +15,10 @@
 // Note: We consider two names with same letters but different cases to be unique.
 
 function generateName() {
-  const symbols = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let name = "";
-  
+  const symbols =
+    '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let name = '';
+
   for (let i = 0; i < 6; i++) {
     name += symbols[Math.floor(Math.random() * symbols.length)];
   }
@@ -44,7 +45,7 @@ const photoManager = {
   for (let i = 0; i < 55; i++) {
     const name = generateName();
 
-    if (typeof name !== "string") {
+    if (typeof name !== 'string') {
       console.error(`Test failed: Name is not a string. Got: ${typeof name}`);
       return;
     }
@@ -55,10 +56,12 @@ const photoManager = {
     }
 
     if (name.length !== 6) {
-      console.error(`Test failed: Name "${name}" is not 6 characters long. Got length: ${name.length}`);
+      console.error(
+        `Test failed: Name "${name}" is not 6 characters long. Got length: ${name.length}`
+      );
       return;
     }
   }
-  
+
   console.log('%cTest passed', 'color: green; font-weight: bold;');
-}) ();
+})();

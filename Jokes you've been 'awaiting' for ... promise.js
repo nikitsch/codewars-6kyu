@@ -19,7 +19,7 @@
 // Joke data shape:
 
 // {
-//   jokes: [{ 
+//   jokes: [{
 //     id: 101,
 //     setup: "Who is Santa's favorite singer?",
 //     punchLine: "Elf-is Presley!"
@@ -27,15 +27,15 @@
 // ...moreJokes]
 // // Use for your tests ^^
 
-async function sayJoke(apiUrl, jokeId){
+async function sayJoke(apiUrl, jokeId) {
   const response = await fetch(apiUrl);
   const data = await response.json();
 
-  if (!data.hasOwnProperty('jokes')) {
+  if (!Object.prototype.hasOwnProperty.call(data, 'jokes')) {
     throw new Error(`No jokes at url: ${apiUrl}`);
   }
 
-  const joke = data.jokes.find(function(joke) {
+  const joke = data.jokes.find(function (joke) {
     return joke.id === jokeId;
   });
 
@@ -46,5 +46,5 @@ async function sayJoke(apiUrl, jokeId){
   return {
     saySetup: () => joke.setup,
     sayPunchLine: () => joke.punchLine,
-  }
+  };
 }

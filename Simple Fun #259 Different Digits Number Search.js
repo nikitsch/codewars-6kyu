@@ -21,20 +21,22 @@ function differentDigitsNumberSearch(arr) {
   const result = arr.find((num) => {
     const digits = num.toString().split('');
     const uniqueDigits = new Set(digits);
-    
+
     return digits.length === uniqueDigits.size;
   });
 
-return result ?? -1;
+  return result ?? -1;
 }
 
 const testCases = [
   [[22, 111, 101, 124, 33, 30], 124],
   [[1111, 404], -1],
-  [[10, 11, 12, 13], 10]
+  [[10, 11, 12, 13], 10],
 ];
 
-const test = testCases.every(([arr, result]) => differentDigitsNumberSearch(arr) === result);
+const test = testCases.every(
+  ([arr, result]) => differentDigitsNumberSearch(arr) === result
+);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

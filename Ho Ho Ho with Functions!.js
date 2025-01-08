@@ -13,7 +13,7 @@
 // at the end of the string, there must be an exclamation mark (!), without a space
 
 function ho(arg) {
-  return arg ? "Ho " + arg : "Ho!";
+  return arg ? 'Ho ' + arg : 'Ho!';
 }
 
 const testCases = [

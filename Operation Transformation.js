@@ -31,13 +31,16 @@ function operation(a, b, count = 0) {
   if (a > b) {
     return operation(a / 2, b, ++count);
   }
-  
-  return Math.log2(b) - Math.log2(a) + count;  
+
+  return Math.log2(b) - Math.log2(a) + count;
 }
 
-const testCases = [[[1, 1], 0], [[4, 16], 2]];
+const testCases = [
+  [[1, 1], 0],
+  [[4, 16], 2],
+];
 
-const test = testCases.every(([arr, result]) => operation(...arr) == result)
+const test = testCases.every(([arr, result]) => operation(...arr) == result);
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');
 } else {

@@ -45,7 +45,7 @@ const testCases = [
 ];
 
 const test = testCases.every(
-  ([arr, res]) => sortByBit(arr).join() === res.join(),
+  ([arr, res]) => sortByBit(arr).join() === res.join()
 );
 if (test) {
   console.log('%cTest passed', 'color: green; font-weight: bold;');

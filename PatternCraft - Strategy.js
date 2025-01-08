@@ -56,20 +56,20 @@ class Viking {
     viking.move();
     if (viking.position !== 1) {
       throw new Error(
-        `Test \`Walk Move\` failed. Expected ${viking.position} to equal 1`,
+        `Test \`Walk Move\` failed. Expected ${viking.position} to equal 1`
       );
     }
 
     viking.move();
     if (viking.position !== 2) {
       throw new Error(
-        `Test \`Walk Move\` failed. Expected ${viking.position} to equal 2`,
+        `Test \`Walk Move\` failed. Expected ${viking.position} to equal 2`
       );
     }
 
     console.log(
       '%cTest `Walk Move` passed',
-      'color: green; font-weight: bold;',
+      'color: green; font-weight: bold;'
     );
   } catch (e) {
     console.error(e.message);
@@ -85,14 +85,14 @@ class Viking {
     viking.move();
     if (viking.position !== 10) {
       throw new Error(
-        `Test \`Fly Move\` failed. Expected ${viking.position} to equal 10`,
+        `Test \`Fly Move\` failed. Expected ${viking.position} to equal 10`
       );
     }
 
     viking.move();
     if (viking.position !== 20) {
       throw new Error(
-        `Test \`Fly Move\` failed. Expected ${viking.position} to equal 20`,
+        `Test \`Fly Move\` failed. Expected ${viking.position} to equal 20`
       );
     }
 
@@ -110,7 +110,7 @@ class Viking {
     viking.move();
     if (viking.position !== 1) {
       throw new Error(
-        `Test \`Mix Move\` failed. Expected ${viking.position} to equal 1`,
+        `Test \`Mix Move\` failed. Expected ${viking.position} to equal 1`
       );
     }
 
@@ -118,7 +118,7 @@ class Viking {
     viking.move();
     if (viking.position !== 11) {
       throw new Error(
-        `Test \`Mix Move\` failed. Expected ${viking.position} to equal 11`,
+        `Test \`Mix Move\` failed. Expected ${viking.position} to equal 11`
       );
     }
 
