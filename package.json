@@ -1,0 +1,31 @@
+{
+  "name": "codewars-6kyu",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "6kyu"
+  ],
+  "homepage": "https://github.com/nikitsch/codewars-6kyu#readme",
+  "bugs": {
+    "url": "https://github.com/nikitsch/codewars-6kyu/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitsch/codewars-6kyu.git"
+  },
+  "license": "ISC",
+  "author": "nikitsch",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
+  }
+}
